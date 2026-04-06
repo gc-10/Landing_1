@@ -1,0 +1,84 @@
+.menu-toggle {
+    display: none;
+    transition: transform 0.2s ease;
+}
+.mobile-menu {
+    display: none;
+}
+.menu-toggle.changing {
+    transform: rotate(90deg);
+}
+.mobile-menu a.active {
+    color: red;
+    border-bottom-color: red;   
+}
+@media (max-width: 821px) { 
+    body {
+        text-align: center;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+    footer {
+        display:block;
+        text-align: center;
+        flex-direction: column;
+    } 
+    footer > div:not(:last-child) {
+        border-bottom: 1px solid white;
+        padding-bottom: 15px;
+    }
+    .navbar-2 {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 38px;
+        color: white;
+    }
+    .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 100px;   
+        right: 0;
+        width: 100%;
+        background: #6c6b6b;
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    .mobile-menu.open {
+        display: flex;
+        animation: slideIn 0.4s ease forwards;
+    }
+    .mobile-menu.closing {
+        display: flex;   
+        animation: slideOut 0.4s ease forwards;
+    }
+    .mobile-menu a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    .nome,.cognome, .telefono, .email, .messaggio {
+        width: 100%;
+    }
+}
+@media (max-width: 380px) {
+    .section-page:last-child iframe {
+       height: 55svh;
+    }
+    .nome,.cognome, .telefono, .email, .messaggio {
+        padding: 8px 12px;
+    }
+}
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-1px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-1px); }
+}
